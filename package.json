@@ -1,0 +1,37 @@
+{
+  "name": "mpass-client-pgp",
+  "version": "1.0.0",
+  "description": "PGP implementation for the mPass project",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*/*-test.js",
+    "browser-test": "browserify test/*/*-test.js | testling -u"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meantimeit/mpass-client-pgp.git"
+  },
+  "author": "Paul Connolley <paul.connolley@gmail.com>",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "tape": "~3.0.1",
+    "testling": "~1.7.1",
+    "browserify": "~6.1.0"
+  },
+  "dependencies": {
+    "openpgp": "^0.8.1"
+  },
+  "testling": {
+    "files": "test/*/*-test.js",
+    "browsers": [
+      "ie/9..latest",
+      "chrome/22..latest",
+      "firefox/16..latest",
+      "safari/latest",
+      "opera/11.0..latest",
+      "iphone/6",
+      "ipad/6",
+      "android-browser/latest"
+    ]
+  }
+}
