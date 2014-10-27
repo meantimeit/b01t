@@ -1,6 +1,6 @@
 {
   "name": "mpass-client-core",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Core client library for the mPass project",
   "main": "index.js",
   "scripts": {
