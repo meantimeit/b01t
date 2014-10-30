@@ -18,9 +18,7 @@
     "testling": "~1.7.1",
     "browserify": "~6.1.0"
   },
-  "dependencies": {
-    "openpgp": "^0.8.1"
-  },
+  "dependencies": {},
   "testling": {
     "files": "test/*/*-test.js",
     "browsers": [
