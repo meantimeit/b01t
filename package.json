@@ -1,6 +1,6 @@
 {
   "name": "mpass-client-gateway",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "description": "Core client gateway library for the mPass project",
   "main": "index.js",
   "scripts": {
