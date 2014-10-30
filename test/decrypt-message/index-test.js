@@ -1,5 +1,5 @@
 var test = require('tape');
-var decryptMessage = require('lib/use-case/decrypt-message');
+var decryptMessage = require('../..').decryptMessage;
 
 test('Decrypt simple message', function (t) {
   t.plan(1);

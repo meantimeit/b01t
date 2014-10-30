@@ -1,7 +1,7 @@
 {
-  "name": "mpass-client-core",
-  "version": "1.0.0",
-  "description": "Core client library for the mPass project",
+  "name": "mpass-client-crypto",
+  "version": "2.0.0",
+  "description": "Core client crypto library for the mPass project",
   "main": "index.js",
   "scripts": {
     "test": "tape test/*/*-test.js",

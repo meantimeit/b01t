@@ -1,5 +1,5 @@
 var test = require('tape');
-var createPair = require('lib/use-case/create-pair');
+var createPair = require('../..').createPair;
 
 test('createPair error', function (t) {
   t.plan(1);
