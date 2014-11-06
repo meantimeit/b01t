@@ -1,5 +1,5 @@
 var test = require('tape');
-var ciphergenable = require('lib/crypto-pgp/ciphergenable');
+var ciphergenable = require('lib/crypto-pgp').ciphergenable;
 
 test('Valid public key block', function (t) {
   t.plan(2);
