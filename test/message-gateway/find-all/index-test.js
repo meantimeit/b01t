@@ -1,5 +1,5 @@
 var test = require('tape');
-var findAll = require('lib/find-all');
+var findAll = require('lib/message-gateway/find-all');
 var BlankMessage = require('../test-doubles/blank-message-entity.js');
 var validFindAllDataMessageGateway = require('../test-doubles/valid-findall-data-message-gateway.js');
 var validMessageMessageBuilder = require('../test-doubles/valid-message-message-builder.js');

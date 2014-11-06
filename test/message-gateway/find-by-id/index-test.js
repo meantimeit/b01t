@@ -2,7 +2,7 @@ var test = require('tape');
 var validMessageGateway = require('./../test-doubles/valid-data-message-gateway.js');
 var BlankMessage = require('../test-doubles/blank-message-entity.js');
 var validMessageMessageBuilder = require('../test-doubles/valid-message-message-builder.js');
-var findById = require('lib/find-by-id');
+var findById = require('lib/message-gateway/find-by-id');
 
 function noop() {}
 
