@@ -1,5 +1,5 @@
 var test = require('tape');
-var createPair = require('../..').createPair;
+var createPair = require('lib/crypto').createPair;
 
 test('createPair error', function (t) {
   t.plan(1);

@@ -1,5 +1,5 @@
 var test = require('tape');
-var encryptMessage = require('../..').encryptMessage;
+var encryptMessage = require('lib/crypto').encryptMessage;
 
 test('Encrypt simple message', function (t) {
   t.plan(1);
