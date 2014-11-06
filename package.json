@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm run test-crypto; npm run test-crypto-pgp; npm run test-message-gateway",
+    "test-crypto": "tape test/crypto/*/*-test.js",
+    "test-crypto-pgp": "tape test/crypto-pgp/*/*-test.js",
+    "test-message-gateway": "tape test/message-gateway/*/*-test.js"
   },
   "repository": {
     "type": "git",
@@ -16,11 +19,14 @@
     "url": "https://github.com/meantimeit/mpass-client/issues"
   },
   "homepage": "https://github.com/meantimeit/mpass-client",
+  "dependencies": {
+    "openpgp": "^0.8.1"
+  },
   "devDependencies": {
     "browserify": "^6.2.0",
     "tape": "^3.0.2",
     "testling": "^1.7.1"
-  }
+  },
   "testling": {
     "files": "test/*/*-test.js",
     "browsers": [

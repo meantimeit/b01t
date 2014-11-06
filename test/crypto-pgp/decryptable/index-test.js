@@ -1,6 +1,6 @@
 var test = require('tape');
 var fs = require('fs');
-var decryptable = require('lib/decryptable');
+var decryptable = require('lib/crypto-pgp/decryptable');
 
 test('Decrypt HELLO', function (t) {
   t.plan(1);
