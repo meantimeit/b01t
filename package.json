@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test-crypto; npm run test-crypto-pgp; npm run test-message-gateway",
+    "test": "tape test/*/*/*-test.js",
     "test-crypto": "tape test/crypto/*/*-test.js",
     "test-crypto-pgp": "tape test/crypto-pgp/*/*-test.js",
     "test-message-gateway": "tape test/message-gateway/*/*-test.js"
