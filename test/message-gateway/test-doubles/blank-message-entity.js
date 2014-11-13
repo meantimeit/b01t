@@ -1,3 +1,3 @@
-function Message() {}
+var MessageEntity = require('lib/message-entity');
 
-module.exports = Message;
+module.exports = MessageEntity;

@@ -1,36 +1,14 @@
 var test = require('tape');
+var assertErrorMessage = require('../../test-utils').assertErrorMessage;
+var assertParamIsFunction = require('../../test-utils').assertParamIsFunction;
+var assertParamInstanceOf = require('../../test-utils').assertParamInstanceOf;
+var assertParamEqual = require('../../test-utils').assertParamEqual;
+var noop = require('../../test-utils').noop;
+
 var validMessageGateway = require('./../test-doubles/valid-data-message-gateway.js');
 var BlankMessage = require('../test-doubles/blank-message-entity.js');
 var validMessageMessageBuilder = require('../test-doubles/valid-message-message-builder.js');
 var findById = require('lib/message-gateway/find-by-id');
-
-function noop() {}
-
-function assertErrorMessage(t, expectedMessage) {
-  return function (err) {
-    t.equal(err.message, expectedMessage);
-  };
-}
-
-function assertParamIsFunction(t, done) {
-  t.equal(typeof done, 'function');
-}
-
-function assertParamEqual(t, param, expected) {
-  return function () {
-    var args = Array.prototype.slice.call(arguments);
-    var index = param - 1;
-    t.deepEqual(args[index], expected);
-  };
-}
-
-function assertParamInstanceOf(t, param, expectedInstance) {
-  return function () {
-    var args = Array.prototype.slice.call(arguments);
-    var index = param - 1;
-    t.ok(args[index] instanceof expectedInstance);
-  };
-}
 
 test('When message gateway not set then return error', function (t) {
   t.plan(2);
