@@ -1,6 +1,6 @@
 var test = require('tape');
-var assertParamEqual = require('../test-utils').assertParamEqual;
-var noop = require('../test-utils').noop;
+var assertParamEqual = require('../../test-utils/index').assertParamEqual;
+var noop = require('../../test-utils/index').noop;
 
 var InMemoryMessageGateway = require('lib/in-memory-message-gateway');
 var gateway;

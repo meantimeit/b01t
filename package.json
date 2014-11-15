@@ -1,14 +1,11 @@
 {
   "name": "mpass-client",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/*/*/*-test.js",
-    "test-crypto": "tape test/crypto/*/*-test.js",
-    "test-crypto-pgp": "tape test/crypto-pgp/*/*-test.js",
-    "test-message-gateway": "tape test/message-gateway/*/*-test.js",
-    "browser-test": "browserify test/*/*/*-test.js | testling -u"
+    "test": "tape test/**/*-test.js",
+    "browser-test": "browserify test/**/*-test.js | testling -u"
   },
   "repository": {
     "type": "git",
@@ -30,7 +27,7 @@
     "testling": "^1.7.1"
   },
   "testling": {
-    "files": "test/*/*-test.js",
+    "files": "test/*/*/*-test.js",
     "browsers": [
       "ie/9..latest",
       "chrome/22..latest",

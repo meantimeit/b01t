@@ -5,12 +5,13 @@ test('createPair error', function (t) {
   t.plan(1);
 
   var opts = {};
+  var mockCrypto = {
+    createPair: function (userId, passphrase, done) {
+      done(new Error('FAIL'));
+    }
+  };
 
-  function pairCreator(userId, passphrase, done) {
-    done(new Error('FAIL'));
-  }
-
-  createPair(pairCreator, opts, function (err) {
+  createPair(mockCrypto, opts, function (err) {
     t.equal('FAIL', err.message);
     t.end();
   })
@@ -24,14 +25,17 @@ test('createPair success', function (t) {
     passphrase: 'p455w0rd'
   };
 
-  function pairCreator(userId, passphrase, done) {
-    done(null, {
-      public: 'PUBKEY',
-      private: 'PRIVKEY'
-    });
-  }
+  var mockCrypto = {
+    createPair: function (userId, passphrase, done) {
+      done(null, {
+        public: 'PUBKEY',
+        private: 'PRIVKEY'
+      });
+    }
+  };
 
-  createPair(pairCreator, opts, function (err, key) {
+
+  createPair(mockCrypto, opts, function (err, key) {
     t.deepEqual(key, {
       public: 'PUBKEY',
       private: 'PRIVKEY'
