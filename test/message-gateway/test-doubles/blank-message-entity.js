@@ -1,3 +1,3 @@
-var MessageEntity = require('lib/message-entity');
+var MessageEntity = require('../../..').entity.MessageEntity;
 
 module.exports = MessageEntity;

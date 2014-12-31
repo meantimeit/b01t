@@ -2,7 +2,7 @@ var test = require('tape');
 var assertCallbackError = require('../../test-utils').assertCallbackError;
 var noop = require('../../test-utils').noop;
 
-var findAll = require('lib/message-gateway/find-all');
+var findAll = require('../../..').gateway.message.findAll;
 var BlankMessage = require('../test-doubles/blank-message-entity.js');
 var validFindAllDataMessageGateway = require('../test-doubles/valid-findall-data-message-gateway.js');
 var validMessageMessageBuilder = require('../test-doubles/valid-message-message-builder.js');

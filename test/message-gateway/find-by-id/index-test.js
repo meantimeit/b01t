@@ -8,7 +8,8 @@ var noop = require('../../test-utils').noop;
 var validMessageGateway = require('./../test-doubles/valid-data-message-gateway.js');
 var BlankMessage = require('../test-doubles/blank-message-entity.js');
 var validMessageMessageBuilder = require('../test-doubles/valid-message-message-builder.js');
-var findById = require('lib/message-gateway/find-by-id');
+
+var findById = require('../../..').gateway.message.findById;
 
 test('When message gateway not set then return error', function (t) {
   t.plan(2);

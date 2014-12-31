@@ -2,8 +2,8 @@ var test = require('tape');
 var assertErrorMessage = require('../../test-utils').assertErrorMessage;
 var noop = require('../../test-utils').noop;
 
-var EncryptedMessageEntity = require('lib/encrypted-message-entity');
-var remove = require('lib/message-gateway').remove;
+var EncryptedMessageEntity = require('../../..').entity.EncryptedMessageEntity;
+var remove = require('../../..').gateway.message.remove;
 
 test('Error if no message gateway passed', function (t) {
   t.plan(2);
@@ -37,7 +37,7 @@ test('Passes ID to gateway', function (t) {
     }
   };
   var message = new EncryptedMessageEntity();
-  message.setID(1);
+  message.setId(1);
   message.setName('Test name');
   message.setData('ABCDEFG');
   message.addField('username', 'my-username');
@@ -53,7 +53,7 @@ test('Message gateway error', function (t) {
     }
   };
   var message = new EncryptedMessageEntity();
-  message.setID(1);
+  message.setId(1);
   remove(errorMessageGateway, message, function (err) {
     t.equal(err.message, 'SOME MESSAGE GATEWAY ERROR');
   });
@@ -67,7 +67,7 @@ test('Message gateway calls done function with no error', function (t) {
     }
   };
   var message = new EncryptedMessageEntity();
-  message.setID(1);
+  message.setId(1);
   remove(saveMessageGateway, message, function (err, message) {
     t.ok(err === undefined);
   });

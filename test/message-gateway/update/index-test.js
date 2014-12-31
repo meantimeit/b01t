@@ -2,8 +2,8 @@ var test = require('tape');
 var assertErrorMessage = require('../../test-utils').assertErrorMessage;
 var noop = require('../../test-utils').noop;
 
-var EncryptedMessageEntity = require('lib/encrypted-message-entity');
-var update = require('lib/message-gateway').update;
+var EncryptedMessageEntity = require('../../..').entity.EncryptedMessageEntity;
+var update = require('../../..').gateway.message.update;
 
 test('Error if no message gateway passed', function (t) {
   t.plan(2);
@@ -39,14 +39,16 @@ test('Extracts serialised data from Message', function (t) {
         data: 'ABCDEFG',
         fields: {
           username: 'my-username'
-        }
+        },
+        userId: 1
       });
     }
   };
   var message = new EncryptedMessageEntity();
-  message.setID(1);
+  message.setId(1);
   message.setName('Test name');
   message.setData('ABCDEFG');
+  message.setUserId(1);
   message.addField('username', 'my-username');
   var _toJSON = message.toJSON;
   message.toJSON = function () {
@@ -65,7 +67,7 @@ test('Message gateway error', function (t) {
     }
   };
   var message = new EncryptedMessageEntity();
-  message.setID(1);
+  message.setId(1);
   update(errorMessageGateway, message, function (err) {
     t.equal(err.message, 'SOME MESSAGE GATEWAY ERROR');
   });
@@ -80,8 +82,8 @@ test('Message gateway returns new message with ID', function (t) {
     }
   };
   var message = new EncryptedMessageEntity();
-  message.setID(1);
+  message.setId(1);
   update(saveMessageGateway, message, function (err, message) {
-    t.equal(message.getID(), 1);
+    t.equal(message.getId(), 1);
   });
 });

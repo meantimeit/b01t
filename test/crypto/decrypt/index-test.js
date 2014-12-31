@@ -1,31 +1,17 @@
 var test = require('tape');
-var decrypt = require('lib/crypto').decrypt;
+var assertParamEqual = require('../../test-utils').assertParamEqual;
+var assertErrorMessage = require('../../test-utils').assertErrorMessage;
+
+var decrypt = require('../../..').crypto.decrypt;
+var decryptSimpleMessageMockCrypto = require('../test-doubles/decrypt-simple-message-mock-crypto.js');
+var decryptErrorMockCrypto = require('../test-doubles/decrypt-error-mock-crypto.js');
 
 test('Decrypt simple message', function (t) {
   t.plan(1);
+  decrypt(decryptSimpleMessageMockCrypto, 'SECRET', 'PASSWORD', 'ISECRETLSECRETISECRETKSECRETESECRETOSECRETWSECRETLSECRETSSECRET', assertParamEqual(t, 2, 'ILIKEOWLS'));
+});
 
-  var mockCrypto = {
-    decrypt: function (key, passphrase, message, done) {
-      var re = new RegExp(key, 'g');
-      done(null, message.replace(re, ''));
-    }
-  };
-
-  decrypt(mockCrypto, 'SECRET', 'PASSWORD', 'ISECRETLSECRETISECRETKSECRETESECRETOSECRETWSECRETLSECRETSSECRET', function (err, data) {
-    t.equal('ILIKEOWLS', data);
-  });
-})
-
-test('decrypt error', function (t) {
+test('Decrypt error', function (t) {
   t.plan(1);
-
-  var mockCrypto = {
-    decrypt: function decrypter(key, passphrase, message, done) {
-      done(new Error('Some error'));
-    }
-  };
-
-  decrypt(mockCrypto, 'PUNYHUMAN', 'HULK', 'SMASH', function (err) {
-    t.equal('Some error', err.message);
-  });
+  decrypt(decryptErrorMockCrypto, 'PUNYHUMAN', 'HULK', 'SMASH', assertErrorMessage(t, 'Some error'));
 });

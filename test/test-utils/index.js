@@ -38,6 +38,16 @@ function assertCallbackError(t, expectedMessage) {
 
 function noop() {}
 
+function assertThrowsWithMessage(t, func, message) {
+  try {
+    func();
+    t.fail();
+  }
+  catch (error) {
+    t.equal(error.message, message);
+  }
+}
+
 module.exports = {
   noop: noop,
   assertErrorMessage: assertErrorMessage,
@@ -45,5 +55,6 @@ module.exports = {
   assertCallbackData: assertCallbackData,
   assertParamIsFunction: assertParamIsFunction,
   assertParamEqual: assertParamEqual,
-  assertParamInstanceOf: assertParamInstanceOf
+  assertParamInstanceOf: assertParamInstanceOf,
+  assertThrowsWithMessage: assertThrowsWithMessage
 };
