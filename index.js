@@ -20,4 +20,6 @@ client.gateway.message.InMemoryMessageGateway = require('./lib/in-memory-message
 client.crypto = require('./lib/crypto');
 client.crypto.pgp = require('./lib/pgp-crypto');
 
+client.createMessage = require('./lib/create-message');
+
 module.exports = client;

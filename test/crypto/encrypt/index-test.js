@@ -1,12 +1,15 @@
 var test = require('tape');
 var assertParamEqual = require('../../test-utils').assertParamEqual;
 var assertErrorMessage = require('../../test-utils').assertErrorMessage;
+var assertParamInstanceOf = require('../../test-utils').assertParamInstanceOf;
 
 var encrypt = require('../../..').crypto.encrypt;
 var encryptSimpleMessageMockCrypto = require('../test-doubles/encrypt-simple-message-mock-crypto.js');
 var encryptErrorMockCrypto = require('../test-doubles/encrypt-error-mock-crypto.js');
 
 var KeyEntity = require('../../..').entity.KeyEntity;
+var EncryptedMessageEntity = require('../../..').entity.EncryptedMessageEntity;
+var createMessage = require('../../..').createMessage;
 
 test('Error when no crypto implementation passed', function (t) {
   t.plan(2);
@@ -31,12 +34,19 @@ test('Error when no message passed', function (t) {
   encrypt(encryptSimpleMessageMockCrypto, mockKey, 'spong', assertErrorMessage(t, 'Message passed to encrypt must be instance of DecryptedMessageEntity'));
 });
 
-//test('Encrypt simple message', function (t) {
-//  t.plan(1);
-//  encrypt(encryptSimpleMessageMockCrypto, 'SECRETCIPHER', 'MYSECRETMESSAGE', assertParamEqual(t, 2, 'SECRETCIPHERMYSECRETMESSAGE'));
-//});
-//
-//test('Encrypt error', function (t) {
-//  t.plan(1);
-//  encrypt(encryptErrorMockCrypto, 'HULK', 'SMASH', assertErrorMessage(t, 'Some error'));
-//});
+test('Encrypt message', function (t) {
+  t.plan(2);
+  var myMessage = createMessage('Foo', 'Secret', 1, { oh: 'noes' });
+  var mockKey = new KeyEntity();
+  mockKey.setCipher('SUPERSECRETCIPHER');
+
+  encrypt(encryptSimpleMessageMockCrypto, mockKey, myMessage, assertParamInstanceOf(t, 2, EncryptedMessageEntity));
+  encrypt(encryptSimpleMessageMockCrypto, mockKey, myMessage, function (err, message) {
+    t.deepEqual(message.toJSON(), {
+      name: 'Foo',
+      data: 'SUPERSECRETCIPHER"Secret"',
+      fields: 'SUPERSECRETCIPHER{"oh":"noes"}',
+      userId: 1
+    });
+  });
+});
