@@ -1,5 +1,5 @@
 var test = require('tape');
-var createPair = require('../../..').crypto.pgp.createPair;
+var createPair = require('../../..').extras.pgp.crypto.createPair;
 
 test('Valid public and private key block', function (t) {
   t.plan(4);

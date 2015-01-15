@@ -10,11 +10,11 @@ var createPairSuccessMockCrypto = require('../test-doubles/create-pair-success-m
 var createPairErrorMockCrypto = require('../test-doubles/create-pair-error-mock-crypto.js');
 
 var keyBuilder = require('../../..').builder.keyBuilder;
-var KeyEntity = require('../../..').entity.KeyEntity;
-var PublicKeyEntity = require('../../..').entity.PublicKeyEntity;
-var PrivateKeyEntity = require('../../..').entity.PrivateKeyEntity;
+var KeyEntity = require('../../../lib').entity.KeyEntity;
+var PublicKeyEntity = require('../../../lib').entity.PublicKeyEntity;
+var PrivateKeyEntity = require('../../../lib').entity.PrivateKeyEntity;
 
-var createPair = require('../../..').crypto.createPair;
+var createPair = require('../../../lib').crypto.createPair;
 
 test('No crypto implementation', function (t) {
   t.plan(2);

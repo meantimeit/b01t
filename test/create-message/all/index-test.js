@@ -1,8 +1,8 @@
 var test = require('tape');
 var assertThrowsWithMessage = require('../../test-utils').assertThrowsWithMessage;
 
-var DecryptedMessageEntity = require('../../..').entity.DecryptedMessageEntity;
-var createMessage = require('../../..').createMessage;
+var DecryptedMessageEntity = require('../../../lib').entity.DecryptedMessageEntity;
+var createMessage = require('../../../lib').createMessage;
 
 test('Error when no name passed', function (t) {
   t.plan(2);

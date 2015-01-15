@@ -2,8 +2,8 @@ var test = require('tape');
 var assertErrorMessage = require('../../test-utils').assertErrorMessage;
 var noop = require('../../test-utils').noop;
 
-var EncryptedMessageEntity = require('../../..').entity.EncryptedMessageEntity;
-var update = require('../../..').gateway.message.update;
+var EncryptedMessageEntity = require('../../../lib').entity.EncryptedMessageEntity;
+var update = require('../../../lib').gateway.message.update;
 
 test('Error if no message gateway passed', function (t) {
   t.plan(2);
@@ -37,9 +37,7 @@ test('Extracts serialised data from Message', function (t) {
         id: 1,
         name: 'Test name',
         data: 'ABCDEFG',
-        fields: {
-          username: 'my-username'
-        },
+        fields: 'BLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAH',
         userId: 1
       });
     }
@@ -49,7 +47,7 @@ test('Extracts serialised data from Message', function (t) {
   message.setName('Test name');
   message.setData('ABCDEFG');
   message.setUserId(1);
-  message.addField('username', 'my-username');
+  message.addFields('BLAHBLAHBLAHBLAHBLAHBLAHBLAHBLAH');
   var _toJSON = message.toJSON;
   message.toJSON = function () {
     t.pass();

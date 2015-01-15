@@ -1,25 +1,15 @@
-var client = {
+var public = {
   builder: {},
-  entity: {},
+  extras: {},
   gateway: {}
 };
 
-client.builder.keyBuilder = require('./lib/key-builder');
+public.builder.keyBuilder = require('./lib/key-builder');
 
-client.entity.KeyEntity = require('./lib/key-entity');
-client.entity.PublicKeyEntity = require('./lib/public-key-entity');
-client.entity.PrivateKeyEntity = require('./lib/private-key-entity');
-client.entity.UserEntity = require('./lib/user-entity');
-client.entity.MessageEntity = require('./lib/message-entity');
-client.entity.EncryptedMessageEntity = require('./lib/encrypted-message-entity');
-client.entity.DecryptedMessageEntity = require('./lib/decrypted-message-entity');
+public.gateway.message = {
+  InMemoryMessageGateway: require('./lib/in-memory-message-gateway')
+};
 
-client.gateway.message = require('./lib/message-gateway');
-client.gateway.message.InMemoryMessageGateway = require('./lib/in-memory-message-gateway');
+public.extras.pgp = { crypto: require('./lib/pgp-crypto') };
 
-client.crypto = require('./lib/crypto');
-client.crypto.pgp = require('./lib/pgp-crypto');
-
-client.createMessage = require('./lib/create-message');
-
-module.exports = client;
+module.exports = public;

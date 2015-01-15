@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/meantimeit/mpass-client",
   "dependencies": {
-    "openpgp": "^0.8.1"
+    "openpgp": "^0.8.1",
+    "prelude-ls": "^1.1.1"
   },
   "devDependencies": {
     "brfs": "^1.2.0",

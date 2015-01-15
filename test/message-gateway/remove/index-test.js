@@ -2,8 +2,8 @@ var test = require('tape');
 var assertErrorMessage = require('../../test-utils').assertErrorMessage;
 var noop = require('../../test-utils').noop;
 
-var EncryptedMessageEntity = require('../../..').entity.EncryptedMessageEntity;
-var remove = require('../../..').gateway.message.remove;
+var EncryptedMessageEntity = require('../../../lib').entity.EncryptedMessageEntity;
+var remove = require('../../../lib').gateway.message.remove;
 
 test('Error if no message gateway passed', function (t) {
   t.plan(2);
@@ -40,7 +40,7 @@ test('Passes ID to gateway', function (t) {
   message.setId(1);
   message.setName('Test name');
   message.setData('ABCDEFG');
-  message.addField('username', 'my-username');
+  //message.addField('username', 'my-username');
 
   remove(mockMessageGateway, message, noop);
 });

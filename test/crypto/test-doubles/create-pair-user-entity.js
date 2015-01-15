@@ -1,4 +1,4 @@
-var UserEntity = require('../../..').entity.UserEntity;
+var UserEntity = require('../../../lib').entity.UserEntity;
 var user = new UserEntity();
 user.setId(1);
 user.setName('jane');

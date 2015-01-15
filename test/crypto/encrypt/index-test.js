@@ -3,13 +3,13 @@ var assertParamEqual = require('../../test-utils').assertParamEqual;
 var assertErrorMessage = require('../../test-utils').assertErrorMessage;
 var assertParamInstanceOf = require('../../test-utils').assertParamInstanceOf;
 
-var encrypt = require('../../..').crypto.encrypt;
+var encrypt = require('../../../lib').crypto.encrypt;
 var encryptSimpleMessageMockCrypto = require('../test-doubles/encrypt-simple-message-mock-crypto.js');
 var encryptErrorMockCrypto = require('../test-doubles/encrypt-error-mock-crypto.js');
 
-var KeyEntity = require('../../..').entity.KeyEntity;
-var EncryptedMessageEntity = require('../../..').entity.EncryptedMessageEntity;
-var createMessage = require('../../..').createMessage;
+var KeyEntity = require('../../../lib').entity.KeyEntity;
+var EncryptedMessageEntity = require('../../../lib').entity.EncryptedMessageEntity;
+var createMessage = require('../../../lib').createMessage;
 
 test('Error when no crypto implementation passed', function (t) {
   t.plan(2);
