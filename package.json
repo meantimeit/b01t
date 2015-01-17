@@ -19,7 +19,6 @@
   "homepage": "https://github.com/meantimeit/mpass-client",
   "dependencies": {
     "mpass-pgp-crypto": "file:../../../../../var/folders/vh/g61btv3s4ld_vyxcpzqv03g40000gn/T/npm-64400-40b9f60a/1421533904342-0.553494815947488/3b0ce421ff9f5fc914710769f437b1d1f0116823",
-    "openpgp": "^0.8.1",
     "prelude-ls": "^1.1.1"
   },
   "devDependencies": {
