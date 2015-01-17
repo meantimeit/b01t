@@ -10,6 +10,6 @@ public.gateway.message = {
   InMemoryMessageGateway: require('./lib/in-memory-message-gateway')
 };
 
-public.extras.pgp = { crypto: require('./lib/pgp-crypto') };
+public.extras.pgp = { crypto: require('mpass-pgp-crypto') };
 
 module.exports = public;
