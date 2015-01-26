@@ -9,16 +9,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/meantimeit/mpass-client.git"
+    "url": "git://github.com/meantimeit/b01t.git"
   },
   "author": "Paul Connolley <paul.connolley@gmail.com>",
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/meantimeit/mpass-client/issues"
+    "url": "https://github.com/meantimeit/b01t/issues"
   },
-  "homepage": "https://github.com/meantimeit/mpass-client",
+  "homepage": "https://github.com/meantimeit/b01t",
   "dependencies": {
-    "mpass-pgp-crypto": "git://github.com/meantimeit/mpass-pgp-crypto#1.0.3",
+    "b01t-pgp-crypto": "git://github.com/meantimeit/b01t-pgp-crypto#1.0.4",
     "prelude-ls": "^1.1.1"
   },
   "devDependencies": {

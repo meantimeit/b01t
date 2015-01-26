@@ -1,7 +1,7 @@
 var b01t = {
   extras: {
     pgp: {
-      crypto: require('mpass-pgp-crypto')
+      crypto: require('b01t-pgp-crypto')
     },
     gateway: {
       InMemoryMessageGateway: require('./lib/in-memory-message-gateway'),
