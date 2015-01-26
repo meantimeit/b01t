@@ -1,15 +1,13 @@
-var public = {
-  builder: {},
-  extras: {},
-  gateway: {}
+var b01t = {
+  extras: {
+    pgp: {
+      crypto: require('mpass-pgp-crypto')
+    },
+    gateway: {
+      InMemoryMessageGateway: require('./lib/in-memory-message-gateway'),
+      InMemoryKeyGateway: require('./lib/in-memory-key-gateway')
+    }
+  }
 };
 
-public.builder.keyBuilder = require('./lib/key-builder');
-
-public.gateway.message = {
-  InMemoryMessageGateway: require('./lib/in-memory-message-gateway')
-};
-
-public.extras.pgp = { crypto: require('mpass-pgp-crypto') };
-
-module.exports = public;
+module.exports = b01t;

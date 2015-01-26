@@ -9,7 +9,7 @@ var createPairUserEntity = require('../test-doubles/create-pair-user-entity.js')
 var createPairSuccessMockCrypto = require('../test-doubles/create-pair-success-mock-crypto.js');
 var createPairErrorMockCrypto = require('../test-doubles/create-pair-error-mock-crypto.js');
 
-var keyBuilder = require('../../..').builder.keyBuilder;
+var keyBuilder = require('../../../lib').keyBuilder;
 var KeyEntity = require('../../../lib').entity.KeyEntity;
 var PublicKeyEntity = require('../../../lib').entity.PublicKeyEntity;
 var PrivateKeyEntity = require('../../../lib').entity.PrivateKeyEntity;

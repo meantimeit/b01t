@@ -2,7 +2,7 @@ var test = require('tape');
 var assertParamEqual = require('../../test-utils/index').assertParamEqual;
 var noop = require('../../test-utils/index').noop;
 
-var InMemoryMessageGateway = require('../../..').gateway.message.InMemoryMessageGateway;
+var InMemoryMessageGateway = require('../../..').extras.gateway.InMemoryMessageGateway;
 var gateway;
 
 function initialiseGateway() {
