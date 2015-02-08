@@ -6,8 +6,8 @@ var assertParamEqual = require('../../test-utils/index').assertParamEqual;
 var noop = require('../../test-utils/index').noop;
 
 var validUserGateway = require('./../test-doubles/valid-data-user-gateway.js');
-var BlankUser = require('../test-doubles/blank-user-entity.js');
-var validUserUserBuilder = require('../test-doubles/valid-user-user-builder.js');
+var userBuilder = require('../../../lib').builder.user;
+var UserEntity = require('../../../lib').entity.UserEntity;
 
 var findById = require('../../../lib/index').gateway.user.findById;
 
@@ -57,6 +57,14 @@ test('When id is set pass data to builder', function (t) {
 });
 
 test('Data sent to builder returned to callback', function (t) {
-  t.plan(1);
-  findById(validUserGateway, validUserUserBuilder, 1, assertParamInstanceOf(t, 2, BlankUser));
+  t.plan(2);
+
+  findById(validUserGateway, userBuilder, 1, assertParamInstanceOf(t, 2, UserEntity));
+  findById(validUserGateway, userBuilder, 1, function (err, user) {
+    t.deepEqual(user.toJSON(), {
+      id: 1,
+      name: 'connrs',
+      email: 'connrs@example.com'
+    });
+  });
 });
