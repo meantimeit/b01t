@@ -24,8 +24,8 @@ test('No crypto implementation', function (t) {
 
 test('No message builder', function (t) {
   t.plan(2);
-  createPair(dummyCrypto, null, null, null, assertErrorMessage(t, 'No message builder'));
-  createPair(dummyCrypto, undefined, null, null, assertErrorMessage(t, 'No message builder'));
+  createPair(dummyCrypto, null, null, null, assertErrorMessage(t, 'No key builder'));
+  createPair(dummyCrypto, undefined, null, null, assertErrorMessage(t, 'No key builder'));
 });
 
 test('No user entity', function (t) {
