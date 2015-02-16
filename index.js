@@ -1,5 +1,6 @@
 var b01t = {
   generateNewKeyPair: require('./lib/generate-new-key-pair'),
+  importOwnKeyPair: require('./lib/import-own-key-pair'),
   extras: {
     pgp: {
       crypto: require('b01t-pgp-crypto')
