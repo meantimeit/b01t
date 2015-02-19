@@ -33,7 +33,7 @@ The second parameter (`passphrase`) is the passphrase string that your user has 
 
 ## Import Own Key Pair [`importOwnKeyPair(options, keyData, done)`]
 
-IF you wish to instantiate a fresh key pair for the current user:
+If you wish to instantiate a fresh key pair for the current user:
 
     var importOwnKeyPair = require('b01t').importOwnKeyPair;
     var gateway = require('./my-gateway-implementation');
@@ -53,3 +53,18 @@ The first parameter (`options`) is an object containing the following keys:
 * user: A user entity instantiated by you
 
 The second parameter (`passphrase`) is the passphrase string that your user has entered to secure the private key
+
+## Get User [`getUser(options, userId, done)`]
+
+If you want to get the user details of a specific user (namely yourself):
+
+    var getUser = require('b01t').getUser;
+    var gateway = require('./my-gateway-implementation');
+    var userId = 1;
+    var options = {
+      gateway: gateway
+    };
+
+    getUser(options, userId, function (err, user) {
+      // user entity now available to use in other b01t use cases
+    });

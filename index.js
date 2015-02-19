@@ -1,5 +1,6 @@
 var b01t = {
   generateNewKeyPair: require('./lib/generate-new-key-pair'),
+  getUser: require('./lib/get-user'),
   importOwnKeyPair: require('./lib/import-own-key-pair'),
   extras: {
     pgp: {
