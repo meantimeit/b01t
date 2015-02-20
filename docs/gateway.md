@@ -21,10 +21,16 @@ The `user` key contains the following methods:
 * update: `update(userObject, cb);`
   The userObject parameter will be a plain javascript object containing new user data. The cb parameter is a callback function. The callback should accept an error parameter
 
+See the [InMemoryUserGateway](../lib/in-memory-message-gateway/index.js) module for a reference implementation.
+
 ## Key
 
 TODO
 
+See the [InKeyUserGateway](../lib/in-memory-key-gateway/index.js) module for a reference implementation.
+
 ## Message
 
 TODO
+
+See the [InMemoryMessageGateway](../lib/in-memory-message-gateway/index.js) module for a reference implementation.
