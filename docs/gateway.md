@@ -27,7 +27,7 @@ See the [InMemoryUserGateway](../lib/in-memory-message-gateway/index.js) module 
 
 TODO
 
-See the [InKeyUserGateway](../lib/in-memory-key-gateway/index.js) module for a reference implementation.
+See the [InMemoryKeyGateway](../lib/in-memory-key-gateway/index.js) module for a reference implementation.
 
 ## Message
 
