@@ -11,19 +11,21 @@ builders and gateways that you manage.
 
 IF you wish to instantiate a fresh key pair for the current user:
 
-    var generateKeyPair = require('b01t').generateKeyPair;
-    var crypto = require('b01t').extras.pgp.crypto;
-    var gateway = require('./my-gateway-implementation');
-    var user = require('./my-user');
-    var options = {
-      crypto: crypto,
-      gateway: gateway,
-      user: user
-    };
+```javascript
+var generateKeyPair = require('b01t').generateKeyPair;
+var crypto = require('b01t').extras.pgp.crypto;
+var gateway = require('./my-gateway-implementation');
+var user = require('./my-user');
+var options = {
+  crypto: crypto,
+  gateway: gateway,
+  user: user
+};
 
-    generateKeyPair(options, 'PASSPHRASE', function (err) {
-      // Key pair generation completed
-    });
+generateKeyPair(options, 'PASSPHRASE', function (err) {
+  // Key pair generation completed
+});
+```
 
 The first parameter (`options`) is an object containing the following keys:
 
@@ -37,17 +39,19 @@ The second parameter (`passphrase`) is the passphrase string that your user has 
 
 If you wish to instantiate a fresh key pair for the current user:
 
-    var importOwnKeyPair = require('b01t').importOwnKeyPair;
-    var gateway = require('./my-gateway-implementation');
-    var user = require('./my-user');
-    var options = {
-      gateway: gateway,
-      user: user
-    };
+```javascript
+var importOwnKeyPair = require('b01t').importOwnKeyPair;
+var gateway = require('./my-gateway-implementation');
+var user = require('./my-user');
+var options = {
+  gateway: gateway,
+  user: user
+};
 
-    importOwnKeyPair(options, 'PASSPHRASE', function (err) {
-      // Key pair generation completed
-    });
+importOwnKeyPair(options, 'PASSPHRASE', function (err) {
+  // Key pair generation completed
+});
+```
 
 The first parameter (`options`) is an object containing the following keys:
 
@@ -60,16 +64,18 @@ The second parameter (`passphrase`) is the passphrase string that your user has 
 
 If you want to get the user details of a specific user (namely yourself):
 
-    var getUser = require('b01t').getUser;
-    var gateway = require('./my-gateway-implementation');
-    var userId = 1;
-    var options = {
-      gateway: gateway
-    };
+```javascript
+var getUser = require('b01t').getUser;
+var gateway = require('./my-gateway-implementation');
+var userId = 1;
+var options = {
+  gateway: gateway
+};
 
-    getUser(options, userId, function (err, user) {
-      // user entity now available to use in other b01t use cases
-    });
+getUser(options, userId, function (err, user) {
+  // user entity now available to use in other b01t use cases
+});
+```
 
 ## Gateway
 
