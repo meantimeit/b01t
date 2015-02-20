@@ -5,7 +5,9 @@
 Core library for the b01t password manager. The interface for b01t is a series of functions that expects a number of basic
 builders and gateways that you manage.
 
-## Generate Key Pair [`generateKeyPair(options, passphrase, done)`]
+## API
+
+### Generate Key Pair [`generateKeyPair(options, passphrase, done)`]
 
 IF you wish to instantiate a fresh key pair for the current user:
 
@@ -31,7 +33,7 @@ The first parameter (`options`) is an object containing the following keys:
 
 The second parameter (`passphrase`) is the passphrase string that your user has entered to secure the private key
 
-## Import Own Key Pair [`importOwnKeyPair(options, keyData, done)`]
+### Import Own Key Pair [`importOwnKeyPair(options, keyData, done)`]
 
 If you wish to instantiate a fresh key pair for the current user:
 
@@ -54,7 +56,7 @@ The first parameter (`options`) is an object containing the following keys:
 
 The second parameter (`passphrase`) is the passphrase string that your user has entered to secure the private key
 
-## Get User [`getUser(options, userId, done)`]
+### Get User [`getUser(options, userId, done)`]
 
 If you want to get the user details of a specific user (namely yourself):
 
@@ -68,3 +70,11 @@ If you want to get the user details of a specific user (namely yourself):
     getUser(options, userId, function (err, user) {
       // user entity now available to use in other b01t use cases
     });
+
+## Gateway
+
+Read the [gateway documentation](./docs/gateway.md) for further information on implementing a gateway.
+
+## Crypto
+
+Ready the [crypto documentation](./docs/crypto.md) for further information on implementing your own crypto.
